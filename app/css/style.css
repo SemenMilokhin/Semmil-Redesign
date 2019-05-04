@@ -71,6 +71,7 @@ body {
 
 .btns-container {
   text-align: center;
+  font-size: 0;
 }
 
 .btns-container_main-screen {
@@ -81,39 +82,64 @@ body {
 }
 
 .btn {
+  position: relative;
+  z-index: 3;
+  overflow: hidden;
   display: inline-block;
-  font: 800 14px/56px 'Montserrat',sans-serif;
+  font: 800 14px/60px 'Montserrat',sans-serif;
   color: #fff;
-  padding: 0 56px;
-  -webkit-box-shadow: 0px 5px 10px 0px rgba(33, 33, 33, 0.6);
-  box-shadow: 0px 5px 10px 0px rgba(33, 33, 33, 0.6);
-  border: 2px solid transparent;
+  padding: 0 60px;
+  -webkit-box-shadow: 5px 5px 10px 0px rgba(33, 33, 33, 0.8);
+  box-shadow: 5px 5px 10px 0px rgba(33, 33, 33, 0.8);
+  border: none;
   outline: none;
-  background-color: #21a2ed;
+  background-color: rgba(33, 162, 237, 0.8);
   text-decoration: none;
-  -webkit-transition: color 0.2s, background-color 0.2s, border-color 0.2s,  -webkit-box-shadow 0.2s;
-  transition: color 0.2s, background-color 0.2s, border-color 0.2s,  -webkit-box-shadow 0.2s;
-  transition: box-shadow 0.2s,  color 0.2s, background-color 0.2s, border-color 0.2s;
-  transition: box-shadow 0.2s,  color 0.2s, background-color 0.2s, border-color 0.2s,  -webkit-box-shadow 0.2s;
+  -webkit-transition: background-color 0.2s, -webkit-box-shadow 0.1s, -webkit-transform 0.2s;
+  transition: background-color 0.2s, -webkit-box-shadow 0.1s, -webkit-transform 0.2s;
+  transition: box-shadow 0.1s, background-color 0.2s, transform 0.2s;
+  transition: box-shadow 0.1s, background-color 0.2s, transform 0.2s, -webkit-box-shadow 0.1s, -webkit-transform 0.2s;
+}
+
+.btn::before {
+  content: '';
+  display: block;
+  position: absolute;
+  background-color: #21a2ed;
+  z-index: -1;
+  left: -110%;
+  top: 0;
+  margin: auto;
+  width: 110%;
+  height: 100%;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
 }
 
 .btn:hover {
   cursor: pointer;
-  color: #21a2ed;
-  background-color: transparent;
-  border-color: #21a2ed;
-  text-shadow: 0px 5px 10px rgba(33, 33, 33, 0.6);
-  -webkit-box-shadow: 0px 5px 10px 0px rgba(33, 33, 33, 0.6), inset 0px 0px 8px 0px rgba(33, 33, 33, 0.6);
-  box-shadow: 0px 5px 10px 0px rgba(33, 33, 33, 0.6), inset 0px 0px 8px 0px rgba(33, 33, 33, 0.6);
+}
+
+.btn:hover::before {
+  -webkit-transform: translate(95%, 0px);
+  transform: translate(95%, 0px);
+}
+
+.btn:active {
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 .btn_main-screen {
-  background-color: #ff464e;
+  background-color: rgba(255, 70, 78, 0.8);
+  -webkit-box-shadow: 5px 5px 10px 0px rgba(33, 33, 33, 0.6);
+  box-shadow: 5px 5px 10px 0px rgba(33, 33, 33, 0.6);
 }
 
-.btn_main-screen:hover {
-  color: #ff464e;
-  border-color: #ff464e;
+.btn_main-screen::before {
+  background-color: #ff464e;
 }
 
 .section-title {
@@ -157,6 +183,10 @@ body {
   top: 0;
   left: 0;
   right: 0;
+  -webkit-transition: background-color 0.5s, -webkit-box-shadow 0.5s;
+  transition: background-color 0.5s, -webkit-box-shadow 0.5s;
+  transition: background-color 0.5s, box-shadow 0.5s;
+  transition: background-color 0.5s, box-shadow 0.5s, -webkit-box-shadow 0.5s;
 }
 
 .header__container {
@@ -274,11 +304,12 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
+  margin: auto;
   width: 0%;
   height: 1px;
   background-color: #fff;
-  -webkit-transition: width 0.3s;
-  transition: width 0.3s;
+  -webkit-transition: width 0.2s;
+  transition: width 0.2s;
 }
 
 .navigation__link:hover::after {
@@ -303,8 +334,40 @@ body {
 
 .social__link {
   display: block;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  z-index: 10;
   font-size: 0;
   padding: 5px 2.5px;
+}
+
+.social__link:hover .social__link-substrate {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+
+.social__link:hover .social__svg-path {
+  fill: #1c1c1c;
+}
+
+.social__link-substrate {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  -webkit-transform-origin: center center;
+  transform-origin: center center;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+  -webkit-transition: 0.2s -webkit-transform;
+  transition: 0.2s -webkit-transform;
+  transition: 0.2s transform;
+  transition: 0.2s transform, 0.2s -webkit-transform;
+  background-color: #fff;
 }
 
 .social__svg {
@@ -314,6 +377,8 @@ body {
 
 .social__svg-path {
   fill: #fff;
+  -webkit-transition: fill 0.2s;
+  transition: fill 0.2s;
 }
 
 .main-screen {
@@ -472,7 +537,7 @@ body {
 }
 
 .reviews-wrapper {
-  padding: 0 0 110px;
+  padding: 0 0 95px;
 }
 
 .reviews {
@@ -484,6 +549,10 @@ body {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+.reviews__slide {
+  outline: none;
 }
 
 .reviews__content-wrapper {
@@ -498,7 +567,7 @@ body {
   align-items: flex-start;
   width: 830px;
   padding: 50px;
-  margin: 0 auto;
+  margin: 15px auto;
   -webkit-box-shadow: 0px 3px 10px 0px rgba(153, 153, 153, 0.6);
   box-shadow: 0px 3px 10px 0px rgba(153, 153, 153, 0.6);
   background-color: #f7f7f7;
@@ -550,6 +619,7 @@ body {
 }
 
 .reviews__social-link {
+  outline: none;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -562,6 +632,8 @@ body {
   width: 28px;
   height: 28px;
   border-radius: 50%;
+  -webkit-box-shadow: 0px 1px 5px 0px rgba(33, 33, 33, 0.35);
+  box-shadow: 0px 1px 5px 0px rgba(33, 33, 33, 0.35);
 }
 
 .reviews__social-link_vk {
@@ -602,7 +674,29 @@ body {
 }
 
 .reviews__link {
+  text-decoration: none;
   color: #4c4c4c;
+  outline: none;
+  position: relative;
+  display: inline-block;
+}
+
+.reviews__link::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 0%;
+  height: 1px;
+  background-color: #4c4c4c;
+  -webkit-transition: width 0.2s;
+  transition: width 0.2s;
+}
+
+.reviews__link:hover::after {
+  width: 100%;
 }
 
 .reviews__slider-controls-container {
@@ -655,6 +749,15 @@ body {
 
 .reviews__slider-arrow:hover .reviews__slider-arrow-svg-path {
   fill: #fff;
+}
+
+.reviews__slider-arrow:active {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  -webkit-transition: -webkit-box-shadow 0.1s;
+  transition: -webkit-box-shadow 0.1s;
+  transition: box-shadow 0.1s;
+  transition: box-shadow 0.1s, -webkit-box-shadow 0.1s;
 }
 
 .reviews__slider-arrow-svg {
