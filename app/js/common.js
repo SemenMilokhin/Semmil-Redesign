@@ -32,7 +32,7 @@ $(document).ready(function() {
 				if (href.length > 1 && $(href)) {
 					evt.preventDefault();
 					$('body, html').animate({
-						scrollTop: $(href).offset().top - 90
+						scrollTop: $(href).offset().top
 					},1000);
 				}
 				
