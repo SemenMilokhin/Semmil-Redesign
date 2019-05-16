@@ -41,6 +41,12 @@ body {
 	font-family: 'Montserrat',sans-serif;
 	color: $darker;
 }
+.main {
+	padding-top: 100px;
+	&#index-page {
+		padding-top: 0;
+	}
+}
 .container {
 	padding: 0 15px;
 	width: 1170px;
@@ -51,7 +57,7 @@ body {
 	font-size: 0;
 	&_main-screen {
 		position: absolute;
-		bottom: 90px;
+		bottom: 70px;
 		left: 0;
 		right: 0;
 	}
@@ -211,6 +217,7 @@ body {
 		padding: 0 25px;
 		&_selected {
 			position: relative;
+			cursor: default;
 			&::before {
 				content: '';
 				position: absolute;
@@ -268,12 +275,12 @@ body {
 	}
 	&__link {
 		display: block;
-		width: 30px;
-		height: 30px;
+		width: 29px;
+		height: 29px;
 		position: relative;
 		z-index: 10;
 		font-size: 0;
-		padding: 5px 2.5px;
+		padding: 5px 2px;
 		&:hover {
 			.social__link-substrate {
 				transform: scale(1);
@@ -631,6 +638,13 @@ body {
 	position: relative;
 	z-index: 3;
 	box-shadow: $dark-section-shadow;
+	&__anchor {
+		height: 0;
+		position: absolute;
+		top: -99px;
+		left: 0;
+		right: 0;
+	}
 	&__container {
 		padding-top: 110px;
 		padding-bottom: 110px;
@@ -696,27 +710,64 @@ body {
 		height: 100%;
 		background-color: transparentize($header-color, 0.2);
 		padding: 30px 40px;
-		transition: transform 0.5s;
+		transition: transform 0.3s;
 	}
 	&__heading {
 		display: block;
-		font-size: 20px;
+		font-size: 22px;
+		line-height: 22px;
+		font-weight: 700;
+		margin: 0 0 14px;
+		&::before {
+			content: '«';
+			margin-right: 2px;
+		}
+		&::after {
+			content: '»';
+			margin-left: 2px;
+		}
+	}
+	&__type {
+		display: block;
+		font-size: 18px;
+		line-height: 18px;
+		font-weight: 400;
+		margin: 0 0 14px;
+	}
+	&__characteristics-list {
+		list-style: none;
+		padding: 0;
+		margin: 0 0 12px;
+		font-size: 0;
+		> :nth-child(n+2) {
+			margin-left: 20px;
+		}
+	}
+	&__characteristic {
+		display: inline-block;
+	}
+	&__characteristic-value {
+		text-align: center;
+	}
+	&__characteristic-heading, &__price-heading, &__date-heading {
+		display: block;
+		font-size: 16px;
 		line-height: 20px;
 		font-weight: 700;
-		margin: 0 0 20px;
+		&::after {
+			content: ':';
+		}
 	}
-	&__price, &__date {
+	&__characteristic-value, &__price, &__date {
 		display: block;
-		font-size: 14px;
+		font-size: 16px;
 		line-height: 20px;
 		font-weight: 400;
 	}
 	&__price {
-		max-width: 228px;
-		margin: 0 0 15px;
+		margin: 0 0 12px;
 	}
 	&__date {
-		max-width: 190px;
 		margin: 0;
 	}
 }
@@ -854,6 +905,118 @@ body {
 			height: 442px;
 			resize: none;
 			margin: 0 0 90px;
+		}
+	}
+}
+//______________________________________________________________________________
+//
+//                              Best Works
+//______________________________________________________________________________
+.best-works {
+	background-color: $dark;
+	color: $light;
+	position: relative;
+	z-index: 2;
+	box-shadow: $dark-section-shadow;
+	&__container {
+		padding-top: 110px;
+		padding-bottom: 110px;
+	}
+}
+//______________________________________________________________________________
+//
+//                           Works Section
+//______________________________________________________________________________
+.works-section {
+	background-color: $light;
+	position: relative;
+	z-index: 1;
+	box-shadow: $light-section-shadow;
+	&__container {
+		padding-top: 110px;
+		padding-bottom: 110px;
+	}
+	.works__item {
+		box-shadow: 0px 8px 20px 0px rgba(13, 13, 13, 0.3);
+	}
+}
+.pagination {
+	width: 460px;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	&__btn {
+		display: inline-block;
+		color: $light;
+		background-color: $contrast;
+		text-decoration: none;
+		height: 25px;
+		padding: 0 10px;
+		font-size: 11px;
+		line-height: 25px;
+		font-weight: 700;
+		letter-spacing: 0.5px;
+		box-shadow: 0px 5px 10px 0px rgba(13, 13, 13, 0.3);
+		transition: 
+			box-shadow 0.2s;
+		&:hover {
+
+		}
+		&:active {
+			box-shadow: none;
+		}
+	}
+	&__pages-list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		font-size: 0;
+		> :nth-last-child(n+2) {
+			margin-right: 3px;
+		}
+	}
+	&__page {
+		display: inline-block;
+		width: 25px;
+		height: 25px;
+		line-height: 26px;
+		font-size: 12px;
+		font-weight: 700;
+		text-align: center;
+		border-radius: 50%;
+		background-color: $light;
+		transition:
+			background-color 0.2s,
+			box-shadow 0.2s;
+		&:hover {
+			background-color: $contrast;
+			box-shadow: 0px 3px 10px 0px rgba(153, 153, 153, 0.6);
+		}
+		&_selected {
+			cursor: default;
+			box-shadow: 0px 3px 10px 0px rgba(153, 153, 153, 0.6);
+			&:hover {
+				background-color: $light;
+			}
+		}
+		&_not-a-link {
+			cursor: default;
+			&:hover {
+				background-color: $light;
+				box-shadow: none;
+			}
+		}
+	}
+	&__link {
+		display: block;
+		height: 100%;
+		text-decoration: none;
+		color: $dark;
+		transition: color 0.2s;
+		&:hover {
+			color: $light;
 		}
 	}
 }

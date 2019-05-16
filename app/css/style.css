@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: 'Montserrat';
   font-style: normal;
@@ -25,6 +26,14 @@ body {
   color: #262626;
 }
 
+.main {
+  padding-top: 100px;
+}
+
+.main#index-page {
+  padding-top: 0;
+}
+
 .container {
   padding: 0 15px;
   width: 1170px;
@@ -38,7 +47,7 @@ body {
 
 .btns-container_main-screen {
   position: absolute;
-  bottom: 90px;
+  bottom: 70px;
   left: 0;
   right: 0;
 }
@@ -233,6 +242,7 @@ body {
 
 .navigation__item_selected {
   position: relative;
+  cursor: default;
 }
 
 .navigation__item_selected::before {
@@ -296,12 +306,12 @@ body {
 
 .social__link {
   display: block;
-  width: 30px;
-  height: 30px;
+  width: 29px;
+  height: 29px;
   position: relative;
   z-index: 10;
   font-size: 0;
-  padding: 5px 2.5px;
+  padding: 5px 2px;
 }
 
 .social__link:hover .social__link-substrate {
@@ -756,6 +766,14 @@ body {
   box-shadow: 0px 0px 20px 0px rgba(33, 33, 33, 0.8);
 }
 
+.last-works__anchor {
+  height: 0;
+  position: absolute;
+  top: -99px;
+  left: 0;
+  right: 0;
+}
+
 .last-works__container {
   padding-top: 110px;
   padding-bottom: 110px;
@@ -837,34 +855,80 @@ body {
   height: 100%;
   background-color: rgba(28, 28, 28, 0.8);
   padding: 30px 40px;
-  -webkit-transition: -webkit-transform 0.5s;
-  transition: -webkit-transform 0.5s;
-  transition: transform 0.5s;
-  transition: transform 0.5s, -webkit-transform 0.5s;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
 }
 
 .works__heading {
   display: block;
-  font-size: 20px;
-  line-height: 20px;
+  font-size: 22px;
+  line-height: 22px;
   font-weight: 700;
-  margin: 0 0 20px;
+  margin: 0 0 14px;
 }
 
-.works__price, .works__date {
+.works__heading::before {
+  content: '«';
+  margin-right: 2px;
+}
+
+.works__heading::after {
+  content: '»';
+  margin-left: 2px;
+}
+
+.works__type {
   display: block;
-  font-size: 14px;
+  font-size: 18px;
+  line-height: 18px;
+  font-weight: 400;
+  margin: 0 0 14px;
+}
+
+.works__characteristics-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 12px;
+  font-size: 0;
+}
+
+.works__characteristics-list > :nth-child(n+2) {
+  margin-left: 20px;
+}
+
+.works__characteristic {
+  display: inline-block;
+}
+
+.works__characteristic-value {
+  text-align: center;
+}
+
+.works__characteristic-heading, .works__price-heading, .works__date-heading {
+  display: block;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 700;
+}
+
+.works__characteristic-heading::after, .works__price-heading::after, .works__date-heading::after {
+  content: ':';
+}
+
+.works__characteristic-value, .works__price, .works__date {
+  display: block;
+  font-size: 16px;
   line-height: 20px;
   font-weight: 400;
 }
 
 .works__price {
-  max-width: 228px;
-  margin: 0 0 15px;
+  margin: 0 0 12px;
 }
 
 .works__date {
-  max-width: 190px;
   margin: 0;
 }
 
@@ -1053,6 +1117,144 @@ body {
   height: 442px;
   resize: none;
   margin: 0 0 90px;
+}
+
+.best-works {
+  background-color: #333333;
+  color: #fff;
+  position: relative;
+  z-index: 2;
+  -webkit-box-shadow: 0px 0px 20px 0px rgba(33, 33, 33, 0.8);
+  box-shadow: 0px 0px 20px 0px rgba(33, 33, 33, 0.8);
+}
+
+.best-works__container {
+  padding-top: 110px;
+  padding-bottom: 110px;
+}
+
+.works-section {
+  background-color: #fff;
+  position: relative;
+  z-index: 1;
+  -webkit-box-shadow: 0px 0px 80px 0px rgba(10, 10, 10, 0.8);
+  box-shadow: 0px 0px 80px 0px rgba(10, 10, 10, 0.8);
+}
+
+.works-section__container {
+  padding-top: 110px;
+  padding-bottom: 110px;
+}
+
+.works-section .works__item {
+  -webkit-box-shadow: 0px 8px 20px 0px rgba(13, 13, 13, 0.3);
+  box-shadow: 0px 8px 20px 0px rgba(13, 13, 13, 0.3);
+}
+
+.pagination {
+  width: 460px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.pagination__btn {
+  display: inline-block;
+  color: #fff;
+  background-color: #21a2ed;
+  text-decoration: none;
+  height: 25px;
+  padding: 0 10px;
+  font-size: 11px;
+  line-height: 25px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  -webkit-box-shadow: 0px 5px 10px 0px rgba(13, 13, 13, 0.3);
+  box-shadow: 0px 5px 10px 0px rgba(13, 13, 13, 0.3);
+  -webkit-transition: -webkit-box-shadow 0.2s;
+  transition: -webkit-box-shadow 0.2s;
+  transition: box-shadow 0.2s;
+  transition: box-shadow 0.2s, -webkit-box-shadow 0.2s;
+}
+
+.pagination__btn:active {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.pagination__pages-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.pagination__pages-list > :nth-last-child(n+2) {
+  margin-right: 3px;
+}
+
+.pagination__page {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  line-height: 26px;
+  font-size: 12px;
+  font-weight: 700;
+  text-align: center;
+  border-radius: 50%;
+  background-color: #fff;
+  -webkit-transition: background-color 0.2s, -webkit-box-shadow 0.2s;
+  transition: background-color 0.2s, -webkit-box-shadow 0.2s;
+  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, box-shadow 0.2s, -webkit-box-shadow 0.2s;
+}
+
+.pagination__page:hover {
+  background-color: #21a2ed;
+  -webkit-box-shadow: 0px 3px 10px 0px rgba(153, 153, 153, 0.6);
+  box-shadow: 0px 3px 10px 0px rgba(153, 153, 153, 0.6);
+}
+
+.pagination__page_selected {
+  cursor: default;
+  -webkit-box-shadow: 0px 3px 10px 0px rgba(153, 153, 153, 0.6);
+  box-shadow: 0px 3px 10px 0px rgba(153, 153, 153, 0.6);
+}
+
+.pagination__page_selected:hover {
+  background-color: #fff;
+}
+
+.pagination__page_not-a-link {
+  cursor: default;
+}
+
+.pagination__page_not-a-link:hover {
+  background-color: #fff;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.pagination__link {
+  display: block;
+  height: 100%;
+  text-decoration: none;
+  color: #333333;
+  -webkit-transition: color 0.2s;
+  transition: color 0.2s;
+}
+
+.pagination__link:hover {
+  color: #fff;
 }
 
 .footer {

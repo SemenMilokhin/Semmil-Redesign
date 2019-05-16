@@ -4,20 +4,22 @@ $(document).ready(function() {
 	initReviewsSlider();
 
 	function initHeaderScroll() {
-		var header = $('.header'),
-			navigation = header.find('.navigation'),
+		if($('#index-page').length !== 0) {
+			var header = $('.header'),
+				navigation = header.find('.navigation'),
 
-			_scroll = function() {
-				if ($(window).scrollTop() > 0) {
-					header.addClass('header_scrolled');
-				} else {
-					header.removeClass('header_scrolled');
-				}
-			};
+				_scroll = function() {
+					if ($(window).scrollTop() > 0) {
+						header.addClass('header_scrolled');
+					} else {
+						header.removeClass('header_scrolled');
+					}
+				};
 
-		_scroll();
+			_scroll();
 
-		$(window).bind('scroll', _scroll);
+			$(window).bind('scroll', _scroll);
+		}
 	}
 
 	function initAnchorLinks() {
@@ -29,13 +31,12 @@ $(document).ready(function() {
 				if (hrefIndex > 0) {
 					href = href.substring(hrefIndex);
 				}
-				if (href.length > 1 && $(href)) {
+				if (href.length > 1 && $(href).length !== 0) {
 					evt.preventDefault();
 					$('body, html').animate({
 						scrollTop: $(href).offset().top
 					},1000);
 				}
-				
 			});
 		});
 	}
