@@ -872,6 +872,12 @@ body {
 			margin-bottom: 0;
 		}
 	}
+	&__single-column {
+		display: none;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
 	&__item {
 		vertical-align: top;
 		width: 555px;

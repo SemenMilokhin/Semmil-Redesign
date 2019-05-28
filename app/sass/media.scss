@@ -100,4 +100,67 @@ $light-section-shadow: 0px 0px 80px 0px rgba(10, 10, 10, 0.8);
 	.social {
 		margin-right: 59px;
 	}
+	.main-title {
+		max-width: unset;
+	}
+	.section-paragraph_center {
+		width: 600px;
+	}
+	.advantages {
+		&__item {
+			display: flex;
+			width: auto;
+			&:nth-last-of-type(n+2) {
+			    margin-bottom: 75px;
+			}
+			&:nth-of-type(odd) {
+			    margin-right: 0;
+			}
+		}
+		&__content-wrapper {
+	        width: 530px;
+	        margin-right: 40px;
+		}
+	}
+	.reviews {
+		padding-bottom: 70px;
+		&__content-wrapper {
+		    width: 738px;
+		}
+		&__text-wrapper {
+		    width: 510px;
+		}
+		&__slider-controls-container {
+		    top: auto;
+		    bottom: 0;
+		}
+		&__slider-controls {
+			justify-content: flex-end;
+		}
+		&__slider-arrow {
+			border-radius: 0;
+			margin-top: -50px;
+			background-color: $card-bg;
+			box-shadow: 0px 3px 10px 0px rgba(153, 153, 153, 0.6);
+			&_left {
+				margin-right: 30px;
+			}
+		}
+	}
+	.process {
+		display: block;
+		&__column {
+			display: none;
+		}
+		&__single-column {
+			display: block;
+			width: 100%;
+		}
+		&__item {
+			width: 100%;
+		}
+		&__paragraph {
+			width: auto;
+		}
+	}
 }
