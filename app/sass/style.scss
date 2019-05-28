@@ -9,9 +9,11 @@ $less-dark: #4c4c4c;
 $placeholder: #808080;
 $header-color: #262626;
 $contrast: #21a2ed;
+$less-contrast: #59c2ff;
 $card-bg: #f7f7f7;
+$error: #ff4040;
 
-$header-shadow: 0px 0px 25px 0px rgba(10, 10, 10, 0.7);
+$header-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.7);
 $dark-section-shadow: 0px 0px 20px 0px rgba(33, 33, 33, 0.8);
 $light-section-shadow: 0px 0px 80px 0px rgba(10, 10, 10, 0.8);
 //______________________________________________________________________________
@@ -77,7 +79,6 @@ body {
 	text-decoration: none;
 	transition: 
 		box-shadow 0.1s,
-		background-color 0.2s,
 		transform 0.2s;
 	&::before {
 		content: '';
@@ -106,6 +107,13 @@ body {
 		box-shadow: 5px 5px 10px 0px rgba(33, 33, 33, 0.6);
 		&::before {
 			background-color: #ff464e;
+		}
+	}
+	&_error {
+		background-color: transparentize($error,0.2);
+		box-shadow: 5px 5px 10px 0px rgba(33, 33, 33, 0.6);
+		&::before {
+			background-color: $error;
 		}
 	}
 }
@@ -190,6 +198,7 @@ body {
 				top: 0;
 				left: 0;
 				margin: auto;
+				transition: background-color 0.2s;
 			}
 		}
 		&_last{
@@ -197,6 +206,15 @@ body {
 			color: $light;
 			padding-left: 1px;
 			padding-right: 2px;
+			transition: color 0.2s;
+		}
+	}
+	&:hover {
+		.logo__part_first::before {
+			background-color: $less-contrast;
+		}
+		.logo__part_last {
+			color: $less-contrast;
 		}
 	}
 }
@@ -242,6 +260,7 @@ body {
 		text-decoration: none;
 		position: relative; 
 		line-height: 18px;
+		transition: color 0.2s;
 		&::after {
 			content: '';
 			position: absolute;
@@ -252,12 +271,74 @@ body {
 			width: 0%;
 			height: 1px;
 			background-color: $light;
-			transition: width 0.2s;
+			transition: width 0.2s, color 0.2s;
 		}
 		&:hover {
+			color: $less-contrast;
 			&::after {
 				width: 100%;
+				background-color: $less-contrast;
 			}
+		}
+	}
+}
+.navigation-btn {
+	display: none;
+	position: absolute;
+	right: 15px;
+	width: 29px;
+	height: 29px;
+	background: none;
+	padding: 0;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	&:hover {
+		.burger {
+			background-color: $less-contrast;
+			&::before, &::after {
+				background-color: $less-contrast;
+			}
+		}
+	}
+}
+.burger {
+	display: block;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	background-color: $light;
+	width: 25px;
+	height: 3px;
+	border-radius: 1.5px;
+	transition: background-color 0.2s;
+	&::before, &::after {
+		content: '';
+		width: 100%;
+		height: 3px;
+		border-radius: 1.5px;
+		background-color: $light;
+		position: absolute;
+		left: 0;
+		transition: background-color 0.2s, transform 0.3s;
+	}
+	&::before {
+		top: -8px;
+	}
+	&::after {
+		bottom: -8px;
+	}
+	&_opened {
+		background-color: transparent !important;
+		transition: background-color 0.1s;
+		&::before {
+			transform: translate(0, 8px) rotate(315deg);
+		}
+		&::after {
+			transform: translate(0,-8px) rotate(225deg);
 		}
 	}
 }
@@ -266,7 +347,7 @@ body {
 	margin: 0;
 	padding: 0;
 	font-size: 0;
-	:last-child {
+	> :last-child {
 		margin-right: 0;
 	}
 	&__item {
@@ -277,31 +358,13 @@ body {
 		display: block;
 		width: 29px;
 		height: 29px;
-		position: relative;
-		z-index: 10;
 		font-size: 0;
 		padding: 5px 2px;
 		&:hover {
-			.social__link-substrate {
-				transform: scale(1);
-			}
 			.social__svg-path {
-				fill: $header-color;
+				fill: $less-contrast;
 			}
 		}
-	}
-	&__link-substrate {
-		position: absolute;
-		z-index: -1;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		border-radius: 50%;
-		transform-origin: center center;
-		transform: scale(0);
-		transition: 0.2s transform;
-		background-color: $light;
 	}
 	&__svg {
 		width: 25px;
@@ -482,17 +545,19 @@ body {
 		position: relative;
 		border-radius: 50%;
 		overflow: hidden;
+		box-shadow: 0px 7px 15px 0px rgba(38, 38, 38, 0.4);
 	}
 	&__image {
 		display: block;
 		position: absolute;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
+		top: -9999%;
+		right: -9999%;
+		bottom: -9999%;
+		left: -9999%;
 		margin: auto;
-		min-height: 100%;
-		min-width: 100%;
+		min-height: 1000%;
+		min-width: 1000%;
+		transform: scale(0.1);
 	}
 	&__text-wrapper {
 		width: 600px;
@@ -524,11 +589,21 @@ body {
 		height: 28px;
 		border-radius: 50%;
 		box-shadow: 0px 1px 5px 0px rgba(33, 33, 33, 0.35);
+		transition: box-shadow 0.2s;
 		&_vk {
 			background-color: #4a76a8;
 		}
-		&_freelance {
+		&_fl {
 			background-color: #87b43c;
+		}
+		&_fb {
+			background-color: #4267b2;
+		}
+		&_tg {
+			background-color: #2ba4e0;
+		}
+		&:active {
+			box-shadow: none;
 		}
 	}
 	&__social-svg {
@@ -542,7 +617,6 @@ body {
 		font-size: 14px;
 		line-height: 20px;
 		font-weight: 400;
-		white-space: pre-wrap;
 		color: $dark;
 		margin: 0 0 30px;
 	}
@@ -656,6 +730,7 @@ body {
 	padding: 0;
 	display: flex;
 	justify-content: flex-start;
+	align-items: flex-start;
 	flex-wrap: wrap;
 	&__item {
 		width: 360px;
@@ -754,9 +829,6 @@ body {
 		font-size: 16px;
 		line-height: 20px;
 		font-weight: 700;
-		&::after {
-			content: ':';
-		}
 	}
 	&__characteristic-value, &__price, &__date {
 		display: block;
@@ -858,6 +930,13 @@ body {
 }
 .contact {
 	font-size: 0;
+	label.error {
+	    position: absolute;
+	    bottom: 100%;
+	    left: 0;
+	    font-size: 14px;
+	    line-height: 22px;
+	}
 	&__required-field-wrapper {
 		position: relative;
 		&::after {
@@ -870,6 +949,7 @@ body {
 			border-radius: 50%;
 			background-color: $contrast;
 			box-shadow: 0px 2px 10px 0px rgba(33, 162, 237, 0.65);
+			transition: background-color 0.2s, box-shadow 0.2s;
 		}
 		&_email-input {
 			display: inline-block;
@@ -881,6 +961,15 @@ body {
 		&_textarea {
 			display: block;
 		}
+		&_error {
+			.contact__field {
+				background-color: #ffe5e5;
+			}
+			&::after {
+				background-color: $error;
+				box-shadow: 0px 2px 10px 0px rgba(255, 64, 64, 0.65);
+			}
+		}
 	}
 	&__field {
 		padding: 23px 57px 23px 23px;
@@ -889,6 +978,7 @@ body {
 		outline: none;
 		font: 400 14px/22px 'Montserrat',sans-serif;
 		box-shadow: 0px 10px 20px 0px rgba(13, 13, 13, 0.4);
+		transition: background-color 0.2s;
 		@include placeholder {
 			font-family: 'Montserrat',sans-serif;
 			color: $placeholder;
@@ -941,17 +1031,58 @@ body {
 	}
 }
 .pagination {
-	width: 460px;
+	width: 320px;
+	padding: 0 20px;
 	margin: 0 auto;
+	position: relative;
+	font-size: 0;
 	display: flex;
-	justify-content: space-between;
+	justify-content: center;
 	align-items: center;
-	flex-wrap: wrap;
-	&__btn {
+}
+a.page-numbers {
+	transition:
+		background-color 0.2s,
+		box-shadow 0.2s,
+		color 0.2s;
+	&:hover {
+		color: $light;
+		background-color: $contrast;
+		box-shadow: 0px 3px 10px 0px rgba(153, 153, 153, 0.6);
+	}
+	&:active {
+		box-shadow: none;
+	}
+}
+.page-numbers {
+	display: inline-block;
+	margin: 0 2px;
+	width: 25px;
+	height: 25px;
+	line-height: 26px;
+	font-size: 12px;
+	font-weight: 700;
+	text-align: center;
+	text-decoration: none;
+	color: $dark;
+	border-radius: 50%;
+	&.current {
+		cursor: default;
+		background-color: $light;
+		box-shadow: 0px 3px 10px 0px rgba(153, 153, 153, 0.6);
+	}
+	&.dots {
+		cursor: default;
+	}
+	&.next, &.prev {
+		position: absolute;
+		top: 0;
 		display: inline-block;
 		color: $light;
 		background-color: $contrast;
 		text-decoration: none;
+		width: auto;
+		border-radius: 0;
 		height: 25px;
 		padding: 0 10px;
 		font-size: 11px;
@@ -968,56 +1099,11 @@ body {
 			box-shadow: none;
 		}
 	}
-	&__pages-list {
-		list-style: none;
-		margin: 0;
-		padding: 0;
-		font-size: 0;
-		> :nth-last-child(n+2) {
-			margin-right: 3px;
-		}
+	&.next {
+		left: 100%;
 	}
-	&__page {
-		display: inline-block;
-		width: 25px;
-		height: 25px;
-		line-height: 26px;
-		font-size: 12px;
-		font-weight: 700;
-		text-align: center;
-		border-radius: 50%;
-		background-color: $light;
-		transition:
-			background-color 0.2s,
-			box-shadow 0.2s;
-		&:hover {
-			background-color: $contrast;
-			box-shadow: 0px 3px 10px 0px rgba(153, 153, 153, 0.6);
-		}
-		&_selected {
-			cursor: default;
-			box-shadow: 0px 3px 10px 0px rgba(153, 153, 153, 0.6);
-			&:hover {
-				background-color: $light;
-			}
-		}
-		&_not-a-link {
-			cursor: default;
-			&:hover {
-				background-color: $light;
-				box-shadow: none;
-			}
-		}
-	}
-	&__link {
-		display: block;
-		height: 100%;
-		text-decoration: none;
-		color: $dark;
-		transition: color 0.2s;
-		&:hover {
-			color: $light;
-		}
+	&.prev {
+		right: 100%;
 	}
 }
 //______________________________________________________________________________
@@ -1105,6 +1191,69 @@ body {
 		font-size: 14px;
 		font-weight: 400;
 		margin: 0;
+	}
+	&__customer {
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+	}
+	&__customer-image-wrapper {
+		width: 60px;
+		height: 60px;
+		margin-right: 10px;
+		border-radius: 50%;
+		overflow: hidden;
+		position: relative;
+		box-shadow: 0px 5px 10px 0px rgba(13, 13, 13, 0.4);
+	}
+	&__customer-image {
+		position: absolute;
+		top: -9999%;
+		right: -9999%;
+		bottom: -9999%;
+		left: -9999%;
+		margin: auto;
+		min-height: 1000%;
+		min-width: 1000%;
+		transform: scale(0.1);
+	}
+	&__customer-data-wrapper {
+		max-width: 240px;
+	}
+	&__customer-name {
+		font-size: 16px;
+		line-height: 22px;
+		font-weight: 700;
+	}
+	&__customer-social-links-list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		font-size: 0;
+	}
+	&__customer-socilal-links-list-item {
+		display: inline-block;
+	}
+	&__customer-social-link {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 22px;
+		height: 22px;
+		&:hover {
+			.work__customer-social-link-svg-path {
+				fill: $less-contrast;
+			}
+		}
+	}
+	&__customer-social-link-svg {
+		display: block;
+		width: 16px;
+		height: 16px;
+	}
+	&__customer-social-link-svg-path {
+		fill: $light;
+		transition: fill 0.2s;
 	}
 	&__links {
 		list-style: none;

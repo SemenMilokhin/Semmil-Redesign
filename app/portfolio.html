@@ -6,6 +6,7 @@
 
 	<link rel="stylesheet" href="css/slick.css">
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/media.css">
 </head>
 <body>
 	<header class="header header_scrolled">
@@ -27,6 +28,9 @@
 					</li>
 				</ul>
 			</nav>
+			<button class="navigation-btn">
+				<span class="burger"></span>
+			</button>
 			<ul class="social">
 				<li class="social__item">
 					<a href="https://vk.com/id331541355" target="_blank" class="social__link">
@@ -380,33 +384,19 @@
 						</a>
 					</li>
 				</ul>
-				<div class="pagination">
-					<a href="#" class="pagination__btn">Предыдущая</a>
-					<ul class="pagination__pages-list">
-						<li class="pagination__page pagination__page_selected">
-							1
-						</li>
-						<li class="pagination__page">
-							<a href="#" class="pagination__link">2</a>
-						</li>
-						<li class="pagination__page">
-							<a href="#" class="pagination__link">3</a>
-						</li>
-						<li class="pagination__page">
-							<a href="#" class="pagination__link">4</a>
-						</li>
-						<li class="pagination__page">
-							<a href="#" class="pagination__link">5</a>
-						</li>
-						<li class="pagination__page pagination__page_not-a-link">
-							...
-						</li>
-						<li class="pagination__page">
-							<a href="#" class="pagination__link">99</a>
-						</li>
-					</ul>
-					<a href="#" class="pagination__btn">Следущая</a>
-				</div>
+				<nav class="pagination">
+					<a class="prev page-numbers" href="http://wordpress/portfolio/">Предыдущая</a>
+					<span aria-current="page" class="page-numbers current">1</span>
+					<a class="page-numbers" href="http://wordpress/portfolio/page/2">2</a>
+					<a class="page-numbers" href="http://wordpress/portfolio/page/2">2</a>
+					<a class="page-numbers" href="http://wordpress/portfolio/page/2">2</a>
+					<a class="page-numbers" href="http://wordpress/portfolio/page/2">2</a>
+					<a class="page-numbers" href="http://wordpress/portfolio/page/2">2</a>
+					<a class="page-numbers" href="http://wordpress/portfolio/page/2">2</a>
+					<a class="page-numbers" href="http://wordpress/portfolio/page/2">2</a>
+					<span class="page-numbers dots">…</span>
+					<a class="next page-numbers" href="http://wordpress/portfolio/page/2">Следущая</a>
+				</nav>
 			</div>
 		</section>
 	</main>
@@ -416,6 +406,7 @@
 		</div>
 	</footer>
 	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery.validate.min.js"></script>
 	<script src="js/slick.min.js"></script>
 	<script src="js/common.js"></script>
 </body>
