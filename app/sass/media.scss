@@ -100,6 +100,9 @@ $light-section-shadow: 0px 0px 80px 0px rgba(10, 10, 10, 0.8);
 	.social {
 		margin-right: 59px;
 	}
+	.main-screen__container {
+	    min-height: 800px;
+	}
 	.main-title {
 		max-width: unset;
 	}
@@ -147,6 +150,30 @@ $light-section-shadow: 0px 0px 80px 0px rgba(10, 10, 10, 0.8);
 			}
 		}
 	}
+	.works {
+		flex-direction: column;
+		&__item {
+			width: 100%;
+			margin-right: 0;
+			&:nth-last-of-type(n+2) {
+				margin-bottom: 45px;
+			}
+		}
+		&__link {
+			display: flex;
+			justify-content: space-between;
+			align-items: flex-start;
+		}
+		&__image-wrapper {
+			width: 360px;
+		}
+		&__description {
+			position: unset;
+			height: 270px;
+			width: 378px;
+			background-color: rgba(38, 38, 38, 0.9);
+		}
+	}
 	.process {
 		display: block;
 		&__column {
@@ -158,9 +185,20 @@ $light-section-shadow: 0px 0px 80px 0px rgba(10, 10, 10, 0.8);
 		}
 		&__item {
 			width: 100%;
+			margin-bottom: 45px;
 		}
 		&__paragraph {
 			width: auto;
 		}
 	}
+	.contact__field_input {
+	    width: 354px;
+	}
+}
+
+@media (hover: none) {
+// Для планшетов и телефонов   
+}
+@media (hover: hover) {
+// эффекты наведения
 }
