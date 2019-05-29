@@ -539,13 +539,24 @@ body {
 		box-shadow: 0px 3px 10px 0px rgba(153, 153, 153, 0.6);
 		background-color: $card-bg;
 	}
+	&__header {
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		margin-bottom: 22px;
+	}
 	&__image-wrapper {
+		display: block;
 		width: 100px;
 		height: 100px;
 		position: relative;
 		border-radius: 50%;
 		overflow: hidden;
 		box-shadow: 0px 7px 15px 0px rgba(38, 38, 38, 0.4);
+		&_mobile {
+			display: none;
+			margin-right: 16px;
+		}
 	}
 	&__image {
 		display: block;
@@ -566,9 +577,10 @@ body {
 	&__username {
 		display: inline-block;
 		font-size: 20px;
-		line-height: 28px;
+		line-height: 29px;
 		font-weight: 700;
-		margin: 0 26px 26px 0;
+		margin: 0 26px 0 0;
+		vertical-align: bottom;
 	}
 	&__social {
 		display: inline-block;
@@ -577,16 +589,17 @@ body {
 		padding: 0;
 	}
 	&__social-item {
-		margin: 0 6px 26px 0;
+		margin: 0 6px 0 0;
 		display: inline-block;
+		vertical-align: bottom;
 	}
 	&__social-link {
 		outline: none;
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		width: 28px;
-		height: 28px;
+		width: 29px;
+		height: 29px;
 		border-radius: 50%;
 		box-shadow: 0px 1px 5px 0px rgba(33, 33, 33, 0.35);
 		transition: box-shadow 0.2s;
@@ -732,18 +745,13 @@ body {
 	justify-content: flex-start;
 	align-items: flex-start;
 	flex-wrap: wrap;
+	> :last-child {
+		margin-bottom: 0;
+	}
 	&__item {
-		width: 360px;
 		position: relative;
 		overflow: hidden;
-		margin-right: 30px;
 		box-shadow: 0px 8px 20px 0px rgba(13, 13, 13, 0.6);
-		&:nth-of-type(3n) {
-			margin-right: 0;
-		}
-		&:nth-last-of-type(n+4) {
-			margin-bottom: 30px;
-		}
 	}
 	&__link {
 		display: block;
@@ -819,6 +827,13 @@ body {
 	&__characteristic-value {
 		text-align: center;
 	}
+	&__characteristic-heading {
+		&_sections {
+			&::before {
+				content: 'Уникальных с'
+			}
+		}
+	}
 	&__characteristic-heading, &__price-heading, &__date-heading {
 		display: block;
 		font-size: 16px;
@@ -872,6 +887,9 @@ body {
 		list-style: none;
 		margin: 0;
 		padding: 0;
+		> :last-child {
+			margin-bottom: 0;
+		}
 	}
 	&__item {
 		vertical-align: top;
@@ -1167,13 +1185,13 @@ a.page-numbers {
 		list-style: none;
 		padding: 0;
 		font-size: 0;
-		margin: 0 0 20px;
+		margin: 0;
 		> :last-child {
 			margin-right: 0;
 		}
 	}
 	&__characteristics-list-item {
-		margin-right: 30px;
+		margin: 0 30px 20px 0;
 		display: inline-block;
 		> :last-child {
 			margin-bottom: 0;

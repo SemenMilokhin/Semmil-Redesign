@@ -629,7 +629,21 @@ body {
   background-color: #f7f7f7;
 }
 
+.reviews__header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-bottom: 22px;
+}
+
 .reviews__image-wrapper {
+  display: block;
   width: 100px;
   height: 100px;
   position: relative;
@@ -637,6 +651,11 @@ body {
   overflow: hidden;
   -webkit-box-shadow: 0px 7px 15px 0px rgba(38, 38, 38, 0.4);
   box-shadow: 0px 7px 15px 0px rgba(38, 38, 38, 0.4);
+}
+
+.reviews__image-wrapper_mobile {
+  display: none;
+  margin-right: 16px;
 }
 
 .reviews__image {
@@ -661,9 +680,10 @@ body {
 .reviews__username {
   display: inline-block;
   font-size: 20px;
-  line-height: 28px;
+  line-height: 29px;
   font-weight: 700;
-  margin: 0 26px 26px 0;
+  margin: 0 26px 0 0;
+  vertical-align: bottom;
 }
 
 .reviews__social {
@@ -674,8 +694,9 @@ body {
 }
 
 .reviews__social-item {
-  margin: 0 6px 26px 0;
+  margin: 0 6px 0 0;
   display: inline-block;
+  vertical-align: bottom;
 }
 
 .reviews__social-link {
@@ -689,8 +710,8 @@ body {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  width: 28px;
-  height: 28px;
+  width: 29px;
+  height: 29px;
   border-radius: 50%;
   -webkit-box-shadow: 0px 1px 5px 0px rgba(33, 33, 33, 0.35);
   box-shadow: 0px 1px 5px 0px rgba(33, 33, 33, 0.35);
@@ -894,21 +915,15 @@ body {
   flex-wrap: wrap;
 }
 
+.works > :last-child {
+  margin-bottom: 0;
+}
+
 .works__item {
-  width: 360px;
   position: relative;
   overflow: hidden;
-  margin-right: 30px;
   -webkit-box-shadow: 0px 8px 20px 0px rgba(13, 13, 13, 0.6);
   box-shadow: 0px 8px 20px 0px rgba(13, 13, 13, 0.6);
-}
-
-.works__item:nth-of-type(3n) {
-  margin-right: 0;
-}
-
-.works__item:nth-last-of-type(n+4) {
-  margin-bottom: 30px;
 }
 
 .works__link {
@@ -1002,6 +1017,10 @@ body {
   text-align: center;
 }
 
+.works__characteristic-heading_sections::before {
+  content: 'Уникальных с';
+}
+
 .works__characteristic-heading, .works__price-heading, .works__date-heading {
   display: block;
   font-size: 16px;
@@ -1074,6 +1093,10 @@ body {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+.process__single-column > :last-child {
+  margin-bottom: 0;
 }
 
 .process__item {
@@ -1444,7 +1467,7 @@ a.page-numbers:active {
   list-style: none;
   padding: 0;
   font-size: 0;
-  margin: 0 0 20px;
+  margin: 0;
 }
 
 .work__characteristics-list > :last-child {
@@ -1452,7 +1475,7 @@ a.page-numbers:active {
 }
 
 .work__characteristics-list-item {
-  margin-right: 30px;
+  margin: 0 30px 20px 0;
   display: inline-block;
 }
 
