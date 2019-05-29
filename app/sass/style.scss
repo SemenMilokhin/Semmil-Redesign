@@ -750,11 +750,6 @@ body {
 		color: $light;
 		height: 100%;
 		text-decoration: none;
-		&:hover {
-			.works__description {
-				transform: translate(0px, 100%);
-			}
-		}
 	}
 	&__image-wrapper, &__description {
 		display: block;

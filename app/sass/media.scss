@@ -16,10 +16,23 @@ $light-section-shadow: 0px 0px 80px 0px rgba(10, 10, 10, 0.8);
 //
 //                                 Медиа
 //______________________________________________________________________________
-@media screen and (max-width: 1170px) {
+@media screen and (min-width: 1171px) {
+	.works {
+		&__link {
+			&:hover {
+				.works__description {
+					transform: translate(0px, 100%);
+				}
+			}
+		}
+	}
+}
+@media screen and (max-width: 1170px) and (min-width: 768px) {
 	.container {
 		width: 768px;
 	}
+}
+@media screen and (max-width: 1170px) {
 	.header {
 		transition: 0s;
 		&__container {
@@ -107,7 +120,7 @@ $light-section-shadow: 0px 0px 80px 0px rgba(10, 10, 10, 0.8);
 		max-width: unset;
 	}
 	.section-paragraph_center {
-		width: 600px;
+		width: 680px;
 	}
 	.advantages {
 		&__item {
@@ -191,11 +204,70 @@ $light-section-shadow: 0px 0px 80px 0px rgba(10, 10, 10, 0.8);
 			width: auto;
 		}
 	}
-	.contact__field_input {
-	    width: 354px;
+	.contact {
+		&__field {
+			&_input {
+				width: 354px;
+			}
+			&_textarea {
+				height: 376px;
+			}
+		}
+	}
+	.work {
+		&__container {
+			flex-direction: column;
+			justify-content: flex-start;
+			align-items: flex-start;
+		}
+		&__image-wrapper {
+		    width: 100%;
+		    min-height: 900px;
+		}
+		&__information-wrapper {
+			padding: 0;
+			margin-top: 30px;
+			width: 100%;
+			display: flex;
+			justify-content: flex-start;
+			align-items: flex-start;
+			flex-wrap: wrap;
+		}
+		&__information-column {
+			width: 50%;
+			> :last-child {
+				margin-bottom: 0;
+			}
+			&_links {
+				padding-top: 86px;
+			}
+		}
+		&__information {
+			&_links {
+				text-align: right;
+			}
+		}
+		&__link {
+			margin-left: 0;
+			margin-right: 24px;
+			&::before {
+				left: unset;
+				right: -24px;
+				transform: rotate(180deg);
+			}
+			&::after {
+				left: unset;
+				right: 0;
+			}
+		}
 	}
 }
-
+@media only screen and (max-width: 767px) {
+	.container {
+		width: 320px;
+		background-color: red;
+	}
+}
 @media (hover: none) {
 // Для планшетов и телефонов   
 }

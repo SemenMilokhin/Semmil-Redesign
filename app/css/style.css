@@ -918,11 +918,6 @@ body {
   text-decoration: none;
 }
 
-.works__link:hover .works__description {
-  -webkit-transform: translate(0px, 100%);
-  transform: translate(0px, 100%);
-}
-
 .works__image-wrapper, .works__description {
   display: block;
   width: 100%;

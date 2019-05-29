@@ -1,7 +1,17 @@
-@media screen and (max-width: 1170px) {
+@media screen and (min-width: 1171px) {
+  .works__link:hover .works__description {
+    -webkit-transform: translate(0px, 100%);
+    transform: translate(0px, 100%);
+  }
+}
+
+@media screen and (max-width: 1170px) and (min-width: 768px) {
   .container {
     width: 768px;
   }
+}
+
+@media screen and (max-width: 1170px) {
   .header {
     -webkit-transition: 0s;
     transition: 0s;
@@ -86,7 +96,7 @@
     max-width: unset;
   }
   .section-paragraph_center {
-    width: 600px;
+    width: 680px;
   }
   .advantages__item {
     display: -webkit-box;
@@ -184,5 +194,73 @@
   }
   .contact__field_input {
     width: 354px;
+  }
+  .contact__field_textarea {
+    height: 376px;
+  }
+  .work__container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+  }
+  .work__image-wrapper {
+    width: 100%;
+    min-height: 900px;
+  }
+  .work__information-wrapper {
+    padding: 0;
+    margin-top: 30px;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+  .work__information-column {
+    width: 50%;
+  }
+  .work__information-column > :last-child {
+    margin-bottom: 0;
+  }
+  .work__information-column_links {
+    padding-top: 86px;
+  }
+  .work__information_links {
+    text-align: right;
+  }
+  .work__link {
+    margin-left: 0;
+    margin-right: 24px;
+  }
+  .work__link::before {
+    left: unset;
+    right: -24px;
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+  .work__link::after {
+    left: unset;
+    right: 0;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .container {
+    width: 320px;
+    background-color: red;
   }
 }
