@@ -34,16 +34,16 @@ $(document).ready(function() {
 		}
 	}
 	function initAdaptiveHeaderMenu() {
-		var header = $('.header'),
-			nav    = header.find('.navigation'),
-			navBtn = header.find('.navigation-btn'),
-			btnActive = true,
-			burger = navBtn.find('.burger'),
-			menuItems = nav.find('.navigation__item'),
-			menuLinks = nav.find('.navigation__link'),
+		var header          = $('.header'),
+			nav             = header.find('.navigation'),
+			navBtn          = header.find('.navigation-btn'),
+			btnActive       = true,
+			burger          = navBtn.find('.burger'),
+			menuItems       = nav.find('.navigation__item'),
+			menuLinks       = nav.find('.navigation__link'),
 			menuItemsLength = menuItems.length,
-			timeOut = 150,
-			animationTime = menuItemsLength*100 + (menuItemsLength-1)*timeOut,
+			timeOut         = 100,
+			animationTime   = 150 + (menuItemsLength-1)*timeOut,
 			closeMenu = function() {
 				if (burger.hasClass('burger_opened') && btnActive) {
 					btnActive = false;
@@ -161,8 +161,8 @@ $(document).ready(function() {
 						maxlength: "Слишком много символов"
 					},
 					email: {
-						required: "Для связи нужна ваша электронная почта",
-						email: "Это не выглядит как адрес электронной почты",
+						required: "Введите ваш email",
+						email: "Введите корректный email",
 						maxlength: "Слишком много символов"
 					},
 					message: {
@@ -187,7 +187,7 @@ $(document).ready(function() {
 						console.log(request);
 						console.log(txtstatus);
 						console.log(errorThrown);
-						btn.text('Ошибка! Попробуйте снова');
+						btn.text('Ошибка');
 						btn.addClass('btn_error');
 						btnActive = false;
 						setTimeout(function () {
@@ -207,7 +207,7 @@ $(document).ready(function() {
 					}
 				});
 			} else if (!form.valid()){
-				btn.text('Данные формы некорректы');
+				btn.text('Ошибка');
 				btn.addClass('btn_error');
 				btnActive = false;
 				setTimeout(function () {
