@@ -577,6 +577,13 @@ body {
 //
 //                            Section Reviews
 //______________________________________________________________________________
+.anchor {
+	height: 0;
+	position: absolute;
+	top: -99px;
+	left: 0;
+	right: 0;
+}
 .section-reviews {
 	overflow: hidden;
 	background-color: $light;
@@ -810,13 +817,6 @@ body {
 	position: relative;
 	z-index: 3;
 	box-shadow: $dark-section-shadow;
-	&__anchor {
-		height: 0;
-		position: absolute;
-		top: -99px;
-		left: 0;
-		right: 0;
-	}
 	&__container {
 		padding-top: 110px;
 		padding-bottom: 110px;
@@ -1020,13 +1020,6 @@ body {
 	position: relative;
 	z-index: 1;
 	box-shadow: $dark-section-shadow;
-	&__anchor {
-		height: 0;
-		position: absolute;
-		top: -99px;
-		left: 0;
-		right: 0;
-	}
 	&__container {
 		padding-top: 110px;
 		padding-bottom: 110px;
@@ -1126,13 +1119,6 @@ body {
 	position: relative;
 	z-index: 1;
 	box-shadow: $light-section-shadow;
-	&__anchor {
-		height: 0;
-		position: absolute;
-		top: -99px;
-		left: 0;
-		right: 0;
-	}
 	&__container {
 		padding-top: 110px;
 		padding-bottom: 110px;
@@ -1612,6 +1598,9 @@ a.page-numbers {
 	        margin-right: 40px;
 		}
 	}
+	.anchor {
+		top: -79px;
+	}
 	.reviews {
 		padding-bottom: 70px;
 		&__content-wrapper {
@@ -1635,11 +1624,6 @@ a.page-numbers {
 			&_left {
 				margin-right: 30px;
 			}
-		}
-	}
-	.last-works {
-		&__anchor {
-			top: -79px;
 		}
 	}
 	.works {
@@ -1669,11 +1653,6 @@ a.page-numbers {
 			width: auto;
 		}
 	}
-	.contact-me {
-		&__anchor {
-			top: -79px;
-		}
-	}
 	.contact {
 		&__field {
 			&_input {
@@ -1682,11 +1661,6 @@ a.page-numbers {
 			&_textarea {
 				height: 376px;
 			}
-		}
-	}
-	.works-section {
-		&__anchor {
-			top: -79px;
 		}
 	}
 	.work {
